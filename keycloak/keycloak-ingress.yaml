@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-keycloak
+spec:
+  rules:
+  - host: keycloak.192.168.49.2.nip.io
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: keycloak
+            port:
+              number: 8080
+
